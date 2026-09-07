@@ -23,6 +23,7 @@ export default function RootLayout() {
         <Tabs.Screen name="applications" options={{ title: 'Lamaran', tabBarIcon: ({ color }) => <BriefcaseBusiness color={color} size={21} /> }} />
         <Tabs.Screen name="insights" options={{ title: 'Insight', tabBarIcon: ({ color }) => <ChartNoAxesColumn color={color} size={21} /> }} />
         <Tabs.Screen name="settings" options={{ title: 'Pengaturan', tabBarIcon: ({ color }) => <Settings color={color} size={21} /> }} />
+        <Tabs.Screen name="index" options={{ href: null }} />
         <Tabs.Screen name="application/edit" options={{ href: null }} />
       </Tabs>
     </SQLiteProvider>
