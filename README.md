@@ -1,20 +1,15 @@
 # Jejak Karier
 
-Jejak Karier is a polished, local-first mobile job application tracker built with Expo, React Native, TypeScript, and SQLite. It turns scattered notes and spreadsheets into a private pipeline with reminders and factual insights.
+Jejak Karier is a local-first mobile job application tracker built with Expo, React Native, TypeScript, and SQLite. It turns scattered notes and spreadsheets into a private pipeline that runs on the device.
 
 ## Features
 
-- One-screen onboarding with optional fictional sample data
-- Application CRUD with duplicate warnings and seven fixed statuses
-- Search, status filters, five sorting modes, and preserved tab state
-- Notes and automatic chronological status history
-- Local follow-up, interview, deadline, and custom reminders
-- Home focus card, upcoming actions, pipeline counts, and recent activity
-- 30-day, 90-day, and all-time insights calculated locally
-- System, light, and dark themes
-- JSON and CSV export through the native share sheet
-- Selective demo-data removal and confirmed full data deletion
-- Indonesian interface, scalable text, accessible labels, and minimum touch targets
+- Application CRUD backed by local SQLite
+- Seven fixed statuses, search, status filters, notes, and status history
+- Local reminders with completion tracking
+- Home dashboard and status distribution insights
+- Optional fictional sample data with full-data deletion
+- Indonesian interface with system light/dark theme support
 
 ## Architecture
 
@@ -33,13 +28,14 @@ npm start
 
 Then scan the Expo QR code, press `a` for Android, or press `i` on macOS for iOS.
 
-Android Expo Go can review the full UI, SQLite data, and reminder flows, but Expo SDK 53+ does not expose native push-notification APIs inside Expo Go. To test actual device notifications, create a development build instead:
+To install a standalone Android APK without keeping a development server running, use the EAS cloud build:
 
 ```bash
-npx expo install expo-dev-client
-npx expo run:android
-npx expo start --dev-client
+npx eas-cli login
+npx eas-cli build --platform android --profile preview
 ```
+
+Open the completed build link on the Android phone, download the APK, and install it. The `preview` profile is configured for direct APK installation.
 
 ## Quality checks
 
@@ -56,4 +52,4 @@ No account, analytics SDK, advertising SDK, or cloud database is included. Data 
 
 ## Current limitations
 
-P1/P2 items from the PRD are intentionally excluded: JSON import, biometrics, quick actions, cloud sync, calendar integration, and custom pipeline statuses. iOS builds require macOS; notification behavior should be confirmed on a physical device before distribution.
+The current MVP intentionally excludes JSON import, biometrics, cloud sync, calendar integration, custom pipeline statuses, and advanced reminder notifications. iOS builds require an Apple Developer account and TestFlight or an ad hoc distribution profile.
